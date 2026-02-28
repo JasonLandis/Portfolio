@@ -1,0 +1,153 @@
+.logo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transition: transform 0.3s;
+    pointer-events: auto;
+    animation:
+        color-switch 8s linear infinite,
+        grow 4s ease-in-out infinite;
+
+    &:hover {}
+}
+
+@keyframes color-switch {
+    from {
+        filter: hue-rotate(0deg);
+    }
+
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes grow {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+.visual-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 800px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+
+    &.one {
+        transform: translate(-50%, -50%);
+    }
+
+    &.two {
+        transform: translate(-50%, -50%) rotate(60deg);
+    }
+
+    &.three {
+        transform: translate(-50%, -50%) rotate(-60deg);
+    }
+}
+
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 800px;
+    pointer-events: none;
+
+    &.one {
+        transform: translate(-50%, -50%);
+    }
+
+    &.two {
+        transform: translate(-50%, -50%) rotate(60deg);
+    }
+
+    &.three {
+        transform: translate(-50%, -50%) rotate(-60deg);
+    }
+}
+
+.satellite {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    background-color: var(--accent);
+    animation: satellite 60s linear infinite;
+    offset-path: ellipse(200px 400px at center);
+    pointer-events: auto;
+    background-size: contain;
+    transition: transform 0.5s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    &.one {
+        offset-rotate: 0deg;
+
+        &.constellation {
+            animation-delay: -30s;
+            background-image: url('/projects/constellation.png');
+            box-shadow: 0 0 10px 1px rgb(87, 87, 87);
+        }
+
+        &.game-dev-blog {
+            animation-delay: 0s;
+        }
+    }
+
+    &.two {
+        offset-rotate: -60deg;
+
+        &.guessphrase {
+            animation-delay: -30s;
+            background-image: url('/projects/guessphrase.png');
+            box-shadow: 0 0 10px 1px rgb(122, 106, 61);
+        }
+
+        &.pathfinder {
+            background-image: url('/projects/pathfinder.png');
+            box-shadow: 0 0 10px 1px rgb(72, 116, 72);
+        }
+    }
+
+    &.three {
+        offset-rotate: 60deg;
+
+        &.photophobia {
+            animation-delay: -30s;
+        }
+
+        &.portfolio {
+            animation-delay: 0s;
+        }
+    }
+}
+
+@keyframes satellite {
+    0% {
+        offset-distance: 0%;
+    }
+
+    100% {
+        offset-distance: 100%;
+    }
+}
