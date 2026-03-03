@@ -1,23 +1,39 @@
-.logo {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transition: transform 0.3s;
-    pointer-events: auto;
-    animation:
-        color-switch 8s linear infinite,
-        grow 4s ease-in-out infinite;
+@property --hue {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
 
-    &:hover {}
+.logo {
+    position: absolute;
+
+    img {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 225px;
+        transition: transform 0.3s;
+
+        --hue: 0deg;
+        
+        filter: sepia(0) saturate(1) hue-rotate(var(--hue));
+        animation:
+            color-switch 8s linear infinite,
+            grow 4s ease-in-out infinite;
+
+        &:hover {
+            filter: sepia(1) saturate(3) hue-rotate(var(--hue));
+        }
+    }
 }
 
 @keyframes color-switch {
     from {
-        filter: hue-rotate(0deg);
+        --hue: 0deg;
     }
 
     to {
-        filter: hue-rotate(360deg);
+        --hue: 360deg;
     }
 }
 
@@ -40,26 +56,33 @@ button {
     cursor: pointer;
 }
 
+@property --rotate {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
 .visual-orbit {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 400px;
     height: 800px;
-    border: 2px solid var(--accent);
+    border: 3px solid rgb(61, 61, 61);
     border-radius: 50%;
     pointer-events: none;
 
-    &.one {
-        transform: translate(-50%, -50%);
+    --rotate: 0deg;
+    
+    transform: translate(-50%, -50%) rotate(var(--rotate));
+    animation: orbit-rotate 60s linear infinite;
+
+    &.one {        
+        animation-delay: 0s;
     }
 
-    &.two {
-        transform: translate(-50%, -50%) rotate(60deg);
-    }
-
-    &.three {
-        transform: translate(-50%, -50%) rotate(-60deg);
+    &.two {        
+        animation-delay: -15s;
     }
 }
 
@@ -71,24 +94,36 @@ button {
     height: 800px;
     pointer-events: none;
 
+    --rotate: 0deg;
+
+    transform: translate(-50%, -50%) rotate(var(--rotate));
+    animation: orbit-rotate 60s linear infinite;
+
     &.one {
-        transform: translate(-50%, -50%);
+        animation-delay: 0s;
     }
 
     &.two {
-        transform: translate(-50%, -50%) rotate(60deg);
+        animation-delay: -15s;
+    }
+}
+
+@keyframes orbit-rotate {
+    from {
+        --rotate: 0deg;
     }
 
-    &.three {
-        transform: translate(-50%, -50%) rotate(-60deg);
+    to {
+        --rotate: 360deg;
     }
 }
 
 .satellite {
     position: absolute;
-    width: 70px;
-    height: 70px;
-    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    box-shadow: 0px 0px 20px 5px rgb(56, 56, 56);
+    border-radius: 50%;
     background-color: var(--accent);
     animation: satellite 60s linear infinite;
     offset-path: ellipse(200px 400px at center);
@@ -101,43 +136,26 @@ button {
     }
 
     &.one {
-        offset-rotate: 0deg;
-
         &.constellation {
             animation-delay: -30s;
             background-image: url('/projects/constellation.png');
-            box-shadow: 0 0 10px 1px rgb(87, 87, 87);
         }
 
-        &.game-dev-blog {
+        &.gamedevblog {
             animation-delay: 0s;
+            background-image: url('/projects/gamedevblog.png');
         }
     }
 
     &.two {
-        offset-rotate: -60deg;
-
         &.guessphrase {
             animation-delay: -30s;
             background-image: url('/projects/guessphrase.png');
-            box-shadow: 0 0 10px 1px rgb(122, 106, 61);
         }
-
-        &.pathfinder {
-            background-image: url('/projects/pathfinder.png');
-            box-shadow: 0 0 10px 1px rgb(72, 116, 72);
-        }
-    }
-
-    &.three {
-        offset-rotate: 60deg;
 
         &.photophobia {
-            animation-delay: -30s;
-        }
-
-        &.portfolio {
             animation-delay: 0s;
+            background-image: url('/projects/photophobia.png');
         }
     }
 }

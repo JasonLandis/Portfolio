@@ -1,7 +1,6 @@
 :root {
     --background: rgb(22, 22, 22);
     --font-default: rgb(255, 255, 255);
-    --accent: rgb(75, 75, 75);
 }
 
 * {
@@ -14,4 +13,5 @@ body {
     color: var(--font-default);
     background-color: var(--background);
     font-family: 'Courier Prime';
+    overflow: hidden;
 }
