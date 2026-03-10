@@ -11,12 +11,12 @@
         position: fixed;
         top: 50%;
         left: 50%;
-        width: 225px;
+        width: 200px;
         transition: transform 0.3s;
 
         --hue: 0deg;
         
-        filter: sepia(0) saturate(1) hue-rotate(var(--hue));
+        filter: sepia(0) saturate(0.1) hue-rotate(var(--hue));
         animation:
             color-switch 8s linear infinite,
             grow 4s ease-in-out infinite;
@@ -68,7 +68,7 @@ button {
     left: 50%;
     width: 400px;
     height: 800px;
-    border: 3px solid rgb(61, 61, 61);
+    border: 3px solid var(--orbit-border);
     border-radius: 50%;
     pointer-events: none;
 
@@ -122,7 +122,6 @@ button {
     position: absolute;
     width: 80px;
     height: 80px;
-    box-shadow: 0px 0px 20px 5px rgb(56, 56, 56);
     border-radius: 50%;
     background-color: var(--accent);
     animation: satellite 60s linear infinite;
@@ -130,6 +129,7 @@ button {
     pointer-events: auto;
     background-size: contain;
     transition: transform 0.5s;
+    box-shadow: 0 0 20px 5px black;
 
     &:hover {
         transform: scale(1.1);
@@ -168,4 +168,30 @@ button {
     100% {
         offset-distance: 100%;
     }
+}
+
+.outer-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1450px;
+    height: 1450px;
+    border-radius: 50%;
+    border: 1px solid var(--orbit-border);
+}
+
+.planet {
+    border-radius: 50%;
+    offset-path: ellipse(725px 725px at center);
+    animation: satellite 160s linear infinite;
+}
+
+.moon {
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: satellite linear infinite;
 }

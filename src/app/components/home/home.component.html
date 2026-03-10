@@ -1,13 +1,35 @@
-<button class="logo"><img src="logo.png" alt=""></button>
-<div>
-    <div class="visual-orbit one"></div>
-    <div class="visual-orbit two"></div>
+<div class="outer-orbit">
+    @for (planet of planets; track $index) {
+        <div class="planet"  
+            [style.width.px]="planet.size"
+            [style.height.px]="planet.size"
+            [style.background]="planet.color"
+            [style.box-shadow]="'0 0 400px 30px ' + planet.color"
+            [style.animation-delay.s]="planet.delay"
+        >
+            @for (moon of planet.moons; track $index) {
+                <div
+                    class="moon"
+                    [style.width.px]="moon.size"
+                    [style.height.px]="moon.size"
+                    [style.background]="moon.color"
+                    [style.animation-duration.s]="moon.speed"
+                    [style.animation-delay.s]="moon.delay"
+                    [style.offset-path]="moon.path"
+                >
+                </div>
+            }
+        </div>
+    }
 </div>
+<button [routerLink]="['/about']" class="logo"><img src="logo.png" alt=""></button>
+<div class="visual-orbit one"></div>
+<div class="visual-orbit two"></div>
 <div class="orbit one">
-    <button class="satellite one constellation"></button>
-    <button class="satellite one gamedevblog"></button>
+    <button [routerLink]="['/constellation']" class="satellite one constellation"></button>
+    <button [routerLink]="['/gamedevblog']" class="satellite one gamedevblog"></button>
 </div>
 <div class="orbit two">
-    <button class="satellite two guessphrase"></button>
-    <button class="satellite two photophobia"></button>
+    <button [routerLink]="['/guessphrase']" class="satellite two guessphrase"></button>
+    <button [routerLink]="['/photophobia']" class="satellite two photophobia"></button>
 </div>
