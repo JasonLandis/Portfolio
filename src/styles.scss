@@ -1,18 +1,13 @@
 :root {
-    --background: rgb(27, 27, 27);
-    --font-default: rgb(255, 255, 255);
-    --orbit-border: rgb(53, 53, 53);
-}
-
-* {
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent-six) var(--background);
+  --background: rgb(15, 15, 15);
+  --font-default: rgb(255, 255, 255);
+  --orbit-border: rgb(199, 199, 199);
 }
 
 body {
-    margin: 0;
-    color: var(--font-default);
-    background-color: var(--background);
-    font-family: 'Courier Prime';
-    overflow: hidden;
+  margin: 0;
+  color: var(--font-default);
+  background-color: var(--background);
+  font-family: 'Courier Prime';
+  overflow: hidden;
 }
