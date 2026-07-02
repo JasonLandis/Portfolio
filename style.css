@@ -1,0 +1,442 @@
+:root {
+  --background: rgb(0, 0, 0);
+  --font-default: rgb(255, 255, 255);
+  --orbit-border: rgb(199, 199, 199);
+  --border-shadow-default: rgb(63, 63, 63);
+  --cube-dark-tile: rgb(31, 31, 31);
+  --cube-blue-tile: rgb(0, 83, 238);
+  --constellation-glow: rgb(255, 87, 87);
+  --gamedevblog-glow: rgb(255, 239, 147);
+  --guessphrase-glow: rgb(180, 255, 170);
+  --webbedwords-glow: rgb(163, 228, 255);
+}
+
+body {
+  margin: 0;
+  color: var(--font-default);
+  background-color: var(--background);
+  font-family: 'Courier Prime', monospace;
+  overflow: hidden;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-image: url('assets/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.global-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@property --rotate {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.black-cover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 800px;
+  border-radius: 50%;
+  background-color: black;
+  --rotate: 0deg;
+  transform: translate(-50%, -50%) rotate(var(--rotate));
+  animation: orbit-rotate 60s linear infinite;
+  transition: width 1s ease;
+}
+.black-cover.one {
+  animation-delay: 0s;
+}
+.black-cover.two {
+  animation-delay: -15s;
+}
+.black-cover.circle {
+  width: 800px;
+}
+
+.visual-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 800px;
+  border: 3px solid var(--orbit-border);
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0px 0px 50px 0px var(--border-shadow-default);
+  --rotate: 0deg;
+  transform: translate(-50%, -50%) rotate(var(--rotate));
+  animation: orbit-rotate 60s linear infinite;
+  transition: box-shadow 1s ease, width 1s ease;
+}
+.visual-orbit.one {
+  animation-delay: 0s;
+}
+.visual-orbit.two {
+  animation-delay: -15s;
+}
+.visual-orbit.constellation {
+  box-shadow: 0px 0px 200px 0px var(--constellation-glow);
+}
+.visual-orbit.gamedevblog {
+  box-shadow: 0px 0px 200px 0px var(--gamedevblog-glow);
+}
+.visual-orbit.guessphrase {
+  box-shadow: 0px 0px 200px 0px var(--guessphrase-glow);
+}
+.visual-orbit.webbedwords {
+  box-shadow: 0px 0px 200px 0px var(--webbedwords-glow);
+}
+.visual-orbit.circle {
+  width: 800px;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 800px;
+  pointer-events: none;
+  --rotate: 0deg;
+  transform: translate(-50%, -50%) rotate(var(--rotate));
+  animation: orbit-rotate 60s linear infinite;
+  z-index: 99;
+}
+.orbit.one {
+  animation-delay: 0s;
+}
+.orbit.two {
+  animation-delay: -15s;
+}
+
+@keyframes orbit-rotate {
+  from { --rotate: 0deg; }
+  to { --rotate: 360deg; }
+}
+
+.satellite {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  animation: satellite 60s linear infinite;
+  offset-path: ellipse(200px 400px at center);
+  pointer-events: auto;
+  background-size: contain;
+  transition: transform 0.5s, offset-path 1s ease, opacity 0.5s;
+  box-shadow: 0 0 20px 5px black;
+}
+.satellite:hover {
+  transform: scale(1.1);
+}
+.satellite.one.constellation {
+  animation-delay: -30s;
+  background-image: url('assets/projects/constellation.png');
+}
+.satellite.one.gamedevblog {
+  animation-delay: 0s;
+  background-color: rgb(22, 22, 22);
+  background-image: url('assets/projects/gamedevblog.png');
+  background-size: 65px auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.satellite.two.guessphrase {
+  animation-delay: -30s;
+  background-image: url('assets/projects/guessphrase.png');
+}
+.satellite.two.webbedwords {
+  animation-delay: 0s;
+  background-color: #bcdbff;
+  background-image: url('assets/projects/webbedwords.png');
+  background-size: 60px auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.satellite.circle {
+  offset-path: ellipse(400px 400px at center);
+}
+.satellite.disappear {
+  pointer-events: none;
+  opacity: 0;
+}
+.satellite.back {
+  background-image: none !important;
+  background-color: red !important;
+}
+
+@keyframes satellite {
+  0% { offset-distance: 0%; }
+  100% { offset-distance: 100%; }
+}
+
+.hexagon {
+  position: absolute;
+  top: 1px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 195px;
+  background-color: white;
+  clip-path: polygon(50% 0%, 100% 22.5%, 100% 78%, 50% 100%, 0% 78%, 0% 22.5%);
+  animation: scale 3s ease-in-out infinite 1s alternate;
+}
+
+@keyframes scale {
+  from { transform: translate(-50%, -50%) scale(1); }
+  to { transform: translate(-50%, -50%) scale(1.02); }
+}
+
+.logo-container {
+  transition: opacity 0.5s ease;
+}
+.logo-container.disappear {
+  opacity: 0;
+}
+
+.cube-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+.cube-container .top-container {
+  position: absolute;
+  top: -70px;
+  left: 0.5px;
+  transform: translate(-50%, -50%);
+}
+.cube-container .top-container .row {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-bottom: -12px;
+}
+.cube-container .top-container .row .tile {
+  width: 42.4px;
+  height: 30px;
+  rotate: -22.5deg;
+  transform: skew(45deg);
+  animation-name: top-move;
+}
+.cube-container .left-container {
+  position: absolute;
+  top: 14px;
+  left: -61.5px;
+  transform: translate(-50%, -50%);
+}
+.cube-container .left-container .row {
+  display: flex;
+  justify-content: center;
+  gap: 1px;
+  margin-bottom: -30px;
+}
+.cube-container .left-container .row .tile {
+  width: 40px;
+  height: 38px;
+  rotate: 90deg;
+  transform: skew(-22.5deg);
+  animation-name: left-move;
+}
+.cube-container .left-container .row .tile:nth-child(2) {
+  margin-top: 18px;
+}
+.cube-container .left-container .row .tile:nth-child(3) {
+  margin-top: 36px;
+}
+.cube-container .right-container {
+  position: absolute;
+  top: 14px;
+  left: 61.5px;
+  transform: translate(-50%, -50%);
+}
+.cube-container .right-container .row {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 1px;
+  margin-bottom: -30px;
+}
+.cube-container .right-container .row .tile {
+  width: 40px;
+  height: 38px;
+  rotate: 90deg;
+  transform: skew(22.5deg);
+  animation-name: right-move;
+}
+.cube-container .right-container .row .tile:nth-child(2) {
+  margin-top: 18px;
+}
+.cube-container .right-container .row .tile:nth-child(3) {
+  margin-top: 36px;
+}
+
+.gray {
+    background-color: var(--cube-dark-tile);
+}
+
+.blue {
+    background-color: var(--cube-blue-tile);
+}
+
+.tile {
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes top-move {
+  from { transform: translate(0px, 0px) skew(45deg); }
+  to { transform: translate(1px, -2px) skew(45deg); }
+}
+
+@keyframes left-move {
+  from { transform: translate(0px, 0px) skew(-22.5deg); }
+  to { transform: translate(1px, 2px) skew(-22.5deg); }
+}
+
+@keyframes right-move {
+  from { transform: translate(0px, 0px) skew(22.5deg); }
+  to { transform: translate(1px, -2px) skew(22.5deg); }
+}
+
+.project-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  padding: 100px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.project-container.opacity {
+  opacity: 1;
+}
+
+.project-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  padding: 100px;
+  border-radius: 50%;
+  position: absolute;
+}
+.project-background.constellation {
+  background: url('assets/graphics/constellation.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(8px);
+  opacity: 0.6;
+}
+.project-background.gamedevblog {
+  background: url('assets/graphics/gamedevblog.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(6px);
+  opacity: 0.4;
+}
+.project-background.guessphrase {
+  background: url('assets/graphics/guessphrase.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(6px);
+  opacity: 0.4;
+}
+.project-background.webbedwords {
+  background: url('assets/graphics/webbedwords.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(6px);
+  opacity: 0.2;
+}
+
+.projects {
+  text-align: center;
+  z-index: 0;
+}
+
+.title {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.timeline {
+  font-size: 20px;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.content {
+  font-size: 18px;
+}
+.content div {
+  margin: 40px 0;
+}
+.content .link {
+  all: unset;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: black;
+  font-weight: bold;
+}
+.content .link:hover {
+  opacity: 0.9;
+}
+.content .link:active {
+  opacity: 0.8;
+}
+.content .link.gamedevblog {
+  background-color: var(--gamedevblog-glow);
+  box-shadow: 0 0 8px 1px var(--gamedevblog-glow); 
+}
+.content .link.guessphrase {
+  background-color: var(--guessphrase-glow);
+  box-shadow: 0 0 8px 1px var(--guessphrase-glow);
+}
+.content .link.webbedwords {
+  background-color: var(--webbedwords-glow);
+  box-shadow: 0 0 8px 1px var(--webbedwords-glow); 
+}
+
+.hidden {
+  display: none;
+}
+
+i {
+  color: white;
+  font-size: 50px;
+}
