@@ -178,10 +178,6 @@ button {
   pointer-events: none;
   opacity: 0;
 }
-.satellite.back {
-  background-image: none !important;
-  background-color: red !important;
-}
 
 @keyframes satellite {
   0% { offset-distance: 0%; }
@@ -363,8 +359,8 @@ button {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: blur(6px);
-  opacity: 0.4;
+  filter: blur(4px);
+  opacity: 0.3;
 }
 .project-background.guessphrase {
   background: url('assets/backgrounds/guessphrase.webp');
@@ -439,4 +435,13 @@ button {
 i {
   color: white;
   font-size: 50px;
+  transition: transform 0.2s;
+}
+
+i:hover {
+  transform: scale(1.1);
+}
+
+i:active {
+  transform: scale(1.2);
 }

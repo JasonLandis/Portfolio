@@ -37,11 +37,7 @@ function satelliteClick(project) {
         if (project === view) {
             view = '';
             sattelits.forEach(proj => {
-                if (proj.id === project) {
-                    proj.classList.remove('back');
-                } else {
-                    proj.classList.remove('disappear');
-                }
+                proj.classList.remove('disappear');
             });
 
             visualOrbitOne.classList.remove('circle');
@@ -72,7 +68,6 @@ function satelliteClick(project) {
             sattelits.forEach(proj => {
                 if (proj.id === project) {
                     proj.classList.remove('disappear');
-                    proj.classList.add('back');
                 } else {
                     proj.classList.add('disappear');
                 }
