@@ -29,7 +29,7 @@ button {
   width: 100vw;
   height: 100vh;
   z-index: -1;
-  background-image: url('assets/background.png');
+  background-image: url('assets/background.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -149,24 +149,24 @@ button {
 }
 .satellite.one.constellation {
   animation-delay: -30s;
-  background-image: url('assets/projects/constellation.png');
+  background-image: url('assets/icons/constellation.webp');
 }
 .satellite.one.gamedevblog {
   animation-delay: 0s;
   background-color: rgb(22, 22, 22);
-  background-image: url('assets/projects/gamedevblog.png');
+  background-image: url('assets/icons/gamedevblog.webp');
   background-size: 65px auto;
   background-repeat: no-repeat;
   background-position: center;
 }
 .satellite.two.guessphrase {
   animation-delay: -30s;
-  background-image: url('assets/projects/guessphrase.png');
+  background-image: url('assets/icons/guessphrase.webp');
 }
 .satellite.two.webbedwords {
   animation-delay: 0s;
   background-color: #bcdbff;
-  background-image: url('assets/projects/webbedwords.png');
+  background-image: url('assets/icons/webbedwords.webp');
   background-size: 60px auto;
   background-repeat: no-repeat;
   background-position: center;
@@ -351,7 +351,7 @@ button {
   position: absolute;
 }
 .project-background.constellation {
-  background: url('assets/graphics/constellation.png');
+  background: url('assets/backgrounds/constellation.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -359,7 +359,7 @@ button {
   opacity: 0.6;
 }
 .project-background.gamedevblog {
-  background: url('assets/graphics/gamedevblog.png');
+  background: url('assets/backgrounds/gamedevblog.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -367,7 +367,7 @@ button {
   opacity: 0.4;
 }
 .project-background.guessphrase {
-  background: url('assets/graphics/guessphrase.png');
+  background: url('assets/backgrounds/guessphrase.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -375,7 +375,7 @@ button {
   opacity: 0.4;
 }
 .project-background.webbedwords {
-  background: url('assets/graphics/webbedwords.png');
+  background: url('assets/backgrounds/webbedwords.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
