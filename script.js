@@ -1,112 +1,104 @@
-const visualOrbitOne = document.getElementById('visual-orbit-one');
-const visualOrbitTwo = document.getElementById('visual-orbit-two');
-const blackCoverOne = document.getElementById('black-cover-one');
-const blackCoverTwo = document.getElementById('black-cover-two');
-const constellation = document.getElementById('constellation');
-const gamedevblog = document.getElementById('gamedevblog');
-const guessphrase = document.getElementById('guessphrase');
-const webbedwords = document.getElementById('webbedwords');
-const sattelits = document.querySelectorAll('.satellite');
+const visualOrbits = document.querySelectorAll('.visual-orbit');
+const blackCovers = document.querySelectorAll('.black-cover');
+const satellites = document.querySelectorAll('.satellite');
 const logo = document.getElementById('logo');
-
-const projects = document.querySelectorAll('.projects');
-
 const projectContainer = document.getElementById('project-container');
-
+const projects = document.querySelectorAll('.projects');
 const projectBackground = document.getElementById('project-background');
 
-const satellites = ['constellation', 'gamedevblog', 'guessphrase', 'webbedwords'];
-
 let view = '';
+let satellitesDisabled = false;
 
-function satelliteHover(project) {
-    if (view !== '' && view !== project) {
-        return;
-    }
-
-    visualOrbitOne.classList.remove(...satellites);
-    visualOrbitTwo.classList.remove(...satellites);
-    if (project) {
-        visualOrbitOne.classList.add(project);
-        visualOrbitTwo.classList.add(project);
+function satelliteHover(project, direction) {
+    if (direction === 1) {
+        visualOrbits.forEach(element => {
+            element.classList.add(project);
+        });
+    } else {
+        visualOrbits.forEach(element => {
+            element.classList.remove(project);
+        });
     }
 }
 
 function satelliteClick(project) {
-    if (project) {
-        if (project === view) {
-            view = '';
-            sattelits.forEach(proj => {
-                proj.classList.remove('disappear');
+    if (satellitesDisabled === true) {
+        return;
+    }
+
+    satellitesDisabled = true;
+
+    if (project === view) {
+        view = '';
+
+        projectContainer.classList.remove('opacity');
+
+        setTimeout(() => {
+            projects.forEach(element => {
+                if (element.id === `${project}-info`) {
+                    element.classList.add('hidden');
+                }
             });
-
-            visualOrbitOne.classList.remove('circle');
-            visualOrbitTwo.classList.remove('circle');
-            blackCoverOne.classList.remove('circle');
-            blackCoverTwo.classList.remove('circle');
-            constellation.classList.remove('circle');
-            gamedevblog.classList.remove('circle');
-            guessphrase.classList.remove('circle');
-            webbedwords.classList.remove('circle');
-            logo.classList.remove('disappear');
-
-            projects.forEach(proj => {
-                proj.classList.add('hidden');
-            });
-
             projectBackground.classList.remove(project);
 
-            projectContainer.classList.remove('opacity');
-
-            setTimeout(() => {
-                projectContainer.classList.add('hidden');
-            }, 500);
-
-        } else {
-            view = project;
-
-            sattelits.forEach(proj => {
-                if (proj.id === project) {
-                    proj.classList.remove('disappear');
-                } else {
-                    proj.classList.add('disappear');
-                }
+            satellites.forEach(element => {
+                element.classList.remove('disappear');
+                element.classList.remove('circle');
             });
 
-            visualOrbitOne.classList.add('circle');
-            visualOrbitTwo.classList.add('circle');
-            blackCoverOne.classList.add('circle');
-            blackCoverTwo.classList.add('circle');
-            constellation.classList.add('circle');
-            gamedevblog.classList.add('circle');
-            guessphrase.classList.add('circle');
-            webbedwords.classList.add('circle');
-            logo.classList.add('disappear');
-
-            projects.forEach(proj => {
-                if (proj.id === `${project}-info`) {
-                    proj.classList.remove('hidden');
-                } else {
-                    proj.classList.add('hidden');
-                }
+            visualOrbits.forEach(element => {
+                element.classList.remove('circle');
             });
 
+            blackCovers.forEach(element => {
+                element.classList.remove('circle');
+            });
+
+            logo.classList.remove('disappear');
+
+            satellitesDisabled = false;
+        }, 250);
+    } else {
+        view = project;
+
+        satellites.forEach(element => {
+            element.classList.add('circle');
+            if (element.id !== project) {
+                element.classList.add('disappear');
+            }
+        });
+
+        visualOrbits.forEach(element => {
+            element.classList.add('circle');
+        });
+
+        blackCovers.forEach(element => {
+            element.classList.add('circle');
+        });
+
+        logo.classList.add('disappear');
+
+        setTimeout(() => {
+            projects.forEach(element => {
+                if (element.id === `${project}-info`) {
+                    element.classList.remove('hidden');
+                } else {
+                    element.classList.add('hidden');
+                }
+            });
             projectBackground.classList.add(project);
+            projectContainer.classList.add('opacity');
 
-            projectContainer.classList.remove('hidden');
-
-            setTimeout(() => {
-                projectContainer.classList.add('opacity');
-            }, 500);
-        }
+            satellitesDisabled = false;
+        }, 500);
     }
 }
 
-document.querySelectorAll('.satellite').forEach(satellite => {
-    satellite.addEventListener('mouseenter', () => satelliteHover(satellite.id));
-    satellite.addEventListener('mouseleave', () => satelliteHover(''));
+satellites.forEach(satellite => {
+    satellite.addEventListener('mouseenter', () => satelliteHover(satellite.id, 1));
+    satellite.addEventListener('mouseleave', () => satelliteHover(satellite.id, 0));
 });
 
-document.querySelectorAll('.satellite').forEach(satellite => {
+satellites.forEach(satellite => {
     satellite.addEventListener('click', () => satelliteClick(satellite.id));
 });
