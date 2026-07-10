@@ -5,9 +5,9 @@
   --border-shadow-default: rgb(63, 63, 63);
   --cube-dark-tile: rgb(31, 31, 31);
   --cube-blue-tile: rgb(0, 83, 238);
-  --constellation-glow: rgb(255, 87, 87);
-  --gamedevblog-glow: rgb(255, 239, 147);
-  --guessphrase-glow: rgb(180, 255, 170);
+  --constellation-glow: rgb(255, 67, 67);
+  --gamedevblog-glow: rgb(255, 172, 95);
+  --guessphrase-glow: rgb(151, 255, 137);
   --webbedwords-glow: rgb(163, 228, 255);
 }
 
@@ -59,7 +59,7 @@ button {
   --rotate: 0deg;
   transform: translate(-50%, -50%) rotate(var(--rotate));
   animation: orbit-rotate 60s linear infinite;
-  transition: width 1s ease;
+  transition: width 1s ease, border-radius 0.5s ease, height 1s ease;
 }
 .black-cover.one {
   animation-delay: 0s;
@@ -68,7 +68,13 @@ button {
   animation-delay: -15s;
 }
 .black-cover.circle {
+  border-radius: 50%;
   width: 800px;
+  height: 800px;
+}
+.black-cover.box {
+  border-radius: 0px;
+  height: 400px;
 }
 
 .visual-orbit {
@@ -84,7 +90,7 @@ button {
   --rotate: 0deg;
   transform: translate(-50%, -50%) rotate(var(--rotate));
   animation: orbit-rotate 60s linear infinite;
-  transition: box-shadow 1s ease, width 1s ease;
+  transition: box-shadow 0.5s ease, width 1s ease, border-color 0.5s ease, border-radius 0.5s ease, height 1s ease;
 }
 .visual-orbit.one {
   animation-delay: 0s;
@@ -93,19 +99,33 @@ button {
   animation-delay: -15s;
 }
 .visual-orbit.constellation {
-  box-shadow: 0px 0px 100px 0px var(--constellation-glow);
+  border-color: var(--constellation-glow);
+  box-shadow: 0px 0px 20px 0px var(--constellation-glow);
 }
 .visual-orbit.gamedevblog {
-  box-shadow: 0px 0px 100px 0px var(--gamedevblog-glow);
+  border-color: var(--gamedevblog-glow);
+  box-shadow: 0px 0px 20px 0px var(--gamedevblog-glow);
 }
 .visual-orbit.guessphrase {
-  box-shadow: 0px 0px 100px 0px var(--guessphrase-glow);
+  border-color: var(--guessphrase-glow);
+  box-shadow: 0px 0px 20px 0px var(--guessphrase-glow);
 }
 .visual-orbit.webbedwords {
-  box-shadow: 0px 0px 100px 0px var(--webbedwords-glow);
+  border-color: var(--webbedwords-glow);
+  box-shadow: 0px 0px 20px 0px var(--webbedwords-glow);
 }
 .visual-orbit.circle {
+  border-radius: 50%;
   width: 800px;
+  height: 800px;
+}
+.visual-orbit.logo {
+  border-color: var(--cube-blue-tile);
+  box-shadow: 0px 0px 100px 0px var(--cube-blue-tile);
+}
+.visual-orbit.box {
+  border-radius: 0px;
+  height: 400px;
 }
 
 .orbit {
@@ -315,35 +335,43 @@ i:active {
   transform: scale(1.2);
 }
 
+.logo-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.logo-container.disappear {
+  opacity: 0;
+  pointer-events: none;
+}
+.logo-container:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
 .hexagon {
   position: absolute;
   top: 1px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.88);
   width: 200px;
   height: 195px;
   background-color: white;
   clip-path: polygon(50% 0%, 100% 22.5%, 100% 78%, 50% 100%, 0% 78%, 0% 22.5%);
-  animation: scale 3s ease-in-out infinite 1s alternate;
+  animation: scale 3s ease infinite 1s alternate;
 }
 
 @keyframes scale {
-  from { transform: translate(-50%, -50%) scale(1); }
-  to { transform: translate(-50%, -50%) scale(1.02); }
-}
-
-.logo-container {
-  transition: opacity 0.5s ease;
-}
-.logo-container.disappear {
-  opacity: 0;
+  from { transform: translate(-50%, -50%) scale(0.88); }
+  to { transform: translate(-50%, -50%) scale(0.94); }
 }
 
 .cube-container {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
+  transform: translate(-50%, -50%) scale(0.7);
 }
 .cube-container .top-container {
   position: absolute;
@@ -433,15 +461,15 @@ i:active {
 
 @keyframes top-move {
   from { transform: translate(0px, 0px) skew(45deg); }
-  to { transform: translate(1px, -2px) skew(45deg); }
+  to { transform: translate(2.5px, -4px) skew(45deg); }
 }
 
 @keyframes left-move {
   from { transform: translate(0px, 0px) skew(-22.5deg); }
-  to { transform: translate(1px, 2px) skew(-22.5deg); }
+  to { transform: translate(2.5px, 4px) skew(-22.5deg); }
 }
 
 @keyframes right-move {
   from { transform: translate(0px, 0px) skew(22.5deg); }
-  to { transform: translate(1px, -2px) skew(22.5deg); }
+  to { transform: translate(2.5px, -4px) skew(22.5deg); }
 }

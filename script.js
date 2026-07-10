@@ -8,8 +8,13 @@ const projectBackground = document.getElementById('project-background');
 
 let view = '';
 let satellitesDisabled = false;
+let logoDisabled = false;
 
 function satelliteHover(project, direction) {
+    if (view === project) {
+        return;
+    }
+
     if (direction === 1) {
         visualOrbits.forEach(element => {
             element.classList.add(project);
@@ -70,6 +75,7 @@ function satelliteClick(project) {
 
         visualOrbits.forEach(element => {
             element.classList.add('circle');
+            element.classList.add(project);
         });
 
         blackCovers.forEach(element => {
@@ -94,6 +100,94 @@ function satelliteClick(project) {
     }
 }
 
+function logoHover(direction) {
+    if (direction === 1) {
+        visualOrbits.forEach(element => {
+            element.classList.add('logo');
+        });
+
+        satellites.forEach(element => {
+            const animation = element.getAnimations()[0];
+            animation.playbackRate = Math.random() * 20;
+        });
+    } else {
+        visualOrbits.forEach(element => {
+            element.classList.remove('logo');
+        });
+
+        satellites.forEach(element => {
+            const animation = element.getAnimations()[0];
+            animation.playbackRate = 1;
+        });
+    }
+}
+
+function logoClick() {
+    if (logoDisabled === true) {
+        return;
+    }
+
+    logoDisabled = true;
+
+    if (view === 'about') {
+        view = '';
+
+        visualOrbits.forEach(element => {
+            element.classList.remove('circle');
+        });
+
+        blackCovers.forEach(element => {
+            element.classList.remove('circle');
+        });
+
+        satellites.forEach(element => {
+            element.classList.remove('disappear');
+        });
+
+        logoDisabled = false;
+    } else {
+        view = 'about';
+
+        satellites.forEach(element => {
+            element.classList.add('disappear');
+        });
+
+        visualOrbits.forEach(element => {
+            element.classList.add('box');
+        });
+
+        blackCovers.forEach(element => {
+            element.classList.add('box');
+        });
+
+        setTimeout(() => {
+            visualOrbits.forEach(element => {
+                element.classList.remove('box');
+                element.classList.add('circle');
+            });
+
+            blackCovers.forEach(element => {
+                element.classList.remove('box');
+                element.classList.add('circle');
+            });
+
+            setTimeout(() => {
+                projects.forEach(element => {
+                    if (element.id === 'about-info') {
+                        element.classList.remove('hidden');
+                    } else {
+                        element.classList.add('hidden');
+                    }
+                });
+                
+                projectContainer.classList.add('opacity');
+
+                logoDisabled = false;
+            }, 500);
+        }, 1000);
+    }
+}
+
 satellites.forEach(satellite => {
     satellite.addEventListener('mouseenter', () => satelliteHover(satellite.id, 1));
     satellite.addEventListener('mouseleave', () => satelliteHover(satellite.id, 0));
@@ -102,3 +196,8 @@ satellites.forEach(satellite => {
 satellites.forEach(satellite => {
     satellite.addEventListener('click', () => satelliteClick(satellite.id));
 });
+
+logo.addEventListener('mouseenter', () => logoHover(1));
+logo.addEventListener('mouseleave', () => logoHover(0));
+
+logo.addEventListener('click', () => logoClick())
