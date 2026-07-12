@@ -2,13 +2,37 @@
   --background: rgb(0, 0, 0);
   --font-default: rgb(255, 255, 255);
   --orbit-border: rgb(199, 199, 199);
-  --border-shadow-default: rgb(63, 63, 63);
+  --border-shadow-default: rgb(163, 163, 163);
   --cube-dark-tile: rgb(31, 31, 31);
   --cube-blue-tile: rgb(0, 83, 238);
   --constellation-glow: rgb(255, 67, 67);
   --gamedevblog-glow: rgb(255, 172, 95);
   --guessphrase-glow: rgb(151, 255, 137);
   --webbedwords-glow: rgb(163, 228, 255);
+}
+
+@font-face {
+    font-family: "Courier Prime";
+    src: url("assets/fonts/CourierPrime-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Courier Prime";
+    src: url("assets/fonts/CourierPrime-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Courier Prime";
+    src: url("assets/fonts/CourierPrime-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 body {
@@ -24,15 +48,34 @@ button {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+}
+
 .background {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  background-image: url('assets/background.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+
+  background:
+      radial-gradient(circle at 42% 38%,
+          rgba(235, 255, 140, 0.9) 0%,
+          rgba(235, 255, 140, 0) 40%),
+
+      radial-gradient(circle at 60% 70%,
+          rgba(255, 120, 90, 0.85) 0%,
+          rgba(255, 120, 90, 0) 36%),
+
+      radial-gradient(circle at 72% 58%,
+          rgba(190, 40, 255, 0.8) 0%,
+          rgba(190, 40, 255, 0) 35%),
+
+      radial-gradient(circle at 28% 50%,
+          rgba(80, 220, 255, 0.55) 0%,
+          rgba(80, 220, 255, 0) 40%);
+
+  filter: blur(70px);
+  opacity: 0.95;
 }
 
 .global-container {
@@ -74,7 +117,8 @@ button {
 }
 .black-cover.box {
   border-radius: 0px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
 }
 
 .visual-orbit {
@@ -125,7 +169,8 @@ button {
 }
 .visual-orbit.box {
   border-radius: 0px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
 }
 
 .orbit {
@@ -321,17 +366,17 @@ button {
   display: none;
 }
 
-i {
-  color: white;
-  font-size: 50px;
+svg {
+  width: 45px;
   transition: transform 0.2s;
+  fill: white;
 }
 
-i:hover {
+svg:hover {
   transform: scale(1.1);
 }
 
-i:active {
+svg:active {
   transform: scale(1.2);
 }
 
