@@ -7,6 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="assets/logo.png" />
+    <link rel="preload" href="assets/fonts/CourierPrime-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/CourierPrime-Italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/CourierPrime-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/backgrounds/constellation.webp" as="image">
+    <link rel="preload" href="assets/backgrounds/gamedevblog.webp" as="image">
+    <link rel="preload" href="assets/backgrounds/guessphrase.webp" as="image">
+    <link rel="preload" href="assets/backgrounds/webbedwords.webp" as="image">
 </head>
 <body>
     <div class="background"></div>
@@ -34,20 +41,26 @@
                 <div class="title">About me</div>
                 <div class="content">
                     <div>
-                        About me stuff
+                        I'm Jason, a Junior Software Developer. I specialize in full-stack software development 
+                        with a hobby in game development. I am constantly working on projects, whether it be a 
+                        video game or a web application. Some of my most involved projects are featured on this 
+                        site, so feel free to check them out.
                     </div>
-                    <div style="display: flex; gap: 30px;">
+                    <div>
+                        This portfolio was built using plain HTML, CSS, and javaScript
+                    </div>
+                    <div style="display: flex; gap: 30px; justify-content: center;">
                         <a href="https://www.linkedin.com/in/jason-landis-557110275" target="_blank">
                             <svg viewBox="0 0 382 382">
                                 <path d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889 C366.529,382,382,366.529,382,347.444V34.555C382,15.471,366.529,0,347.445,0z M118.207,329.844c0,5.554-4.502,10.056-10.056,10.056 H65.345c-5.554,0-10.056-4.502-10.056-10.056V150.403c0-5.554,4.502-10.056,10.056-10.056h42.806 c5.554,0,10.056,4.502,10.056,10.056V329.844z M86.748,123.432c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1 s40.666,18.207,40.666,40.666S109.208,123.432,86.748,123.432z M341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73 c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021c-28.309,0-34.051,29.066-35.204,42.11v97.079 c0,5.106-4.139,9.246-9.246,9.246h-44.426c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426 c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912c73.552,0,73.131,68.716,73.131,106.472 L341.91,330.654L341.91,330.654z"></path>
                             </svg>
                         </a>
-                        <a href="https://github.com/username" target="_blank">
+                        <a href="https://github.com/JasonLandis" target="_blank">
                             <svg viewBox="0 0 24 24">
                                 <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
                             </svg>
                         </a>
-                        <a href="mailto:jasonelandis@gmail.com">
+                        <a href="mailto:jasonelandis@gmail.com" target="_blank">
                             <svg viewBox="0 0 512 512"><polygon points="512,386.058 512,147.816 375.36,266.942"></polygon><path d="M432.466,0H79.534C35.612,0,0,35.611,0,79.534v2.33l227.884,198.67c8.117,7.048,18.04,10.524,28.116,10.534 c10.078-0.01,20.02-3.486,28.117-10.534L512,81.864v-2.33C512,35.611,476.389,0,432.466,0z"></path><path d="M316.777,318.01c-17.359,15.155-39.146,22.786-60.777,22.768c-21.63,0.019-43.398-7.621-60.776-22.768 l-20.757-18.097L2.059,450.214C10.137,485.583,41.728,512,79.534,512h352.932c37.826,0,69.398-26.417,77.476-61.786 L337.534,299.913L316.777,318.01z"></path><polygon points="0,147.816 0,386.058 136.642,266.932 "></polygon></svg>
                         </a>
                     </div>

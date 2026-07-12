@@ -132,17 +132,29 @@ function logoClick() {
     if (view === 'about') {
         view = '';
 
-        visualOrbits.forEach(element => {
-            element.classList.remove('circle');
-        });
+        projectContainer.classList.remove('opacity');
 
-        blackCovers.forEach(element => {
-            element.classList.remove('circle');
-        });
+        setTimeout(() => {
+            logo.classList.remove('about');
 
-        satellites.forEach(element => {
-            element.classList.remove('disappear');
-        });
+            projects.forEach(element => {
+                element.classList.remove('hidden');
+            });
+
+            projectBackground.classList.remove('about');
+
+            visualOrbits.forEach(element => {
+                element.classList.remove('circle');
+            });
+
+            blackCovers.forEach(element => {
+                element.classList.remove('circle');
+            });
+
+            satellites.forEach(element => {
+                element.classList.remove('disappear');
+            });
+        }, 250);
 
         logoDisabled = false;
     } else {
@@ -172,6 +184,8 @@ function logoClick() {
             });
 
             setTimeout(() => {
+                logo.classList.add('about');
+
                 projects.forEach(element => {
                     if (element.id === 'about-info') {
                         element.classList.remove('hidden');
@@ -179,7 +193,8 @@ function logoClick() {
                         element.classList.add('hidden');
                     }
                 });
-                
+
+                projectBackground.classList.add('about');
                 projectContainer.classList.add('opacity');
 
                 logoDisabled = false;
