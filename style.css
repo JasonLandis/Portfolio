@@ -1,14 +1,15 @@
 :root {
-  --background: rgb(0, 1, 22);
+  --background: rgb(0, 4, 15);
   --font-default: rgb(255, 255, 255);
   --orbit-border: rgb(199, 199, 199);
   --border-shadow-default: rgb(163, 163, 163);
   --cube-dark-tile: rgb(31, 31, 31);
   --cube-blue-tile: rgb(0, 83, 238);
-  --constellation-glow: rgb(255, 67, 67);
+  --constellation-glow: rgb(255, 63, 63);
   --gamedevblog-glow: rgb(255, 172, 95);
   --guessphrase-glow: rgb(151, 255, 137);
   --webbedwords-glow: rgb(163, 228, 255);
+  --logo-glow: rgb(62, 178, 255);
 }
 
 @font-face {
@@ -59,19 +60,19 @@ a {
 
   background:
       radial-gradient(circle at 40% 30%,
-          rgba(255, 215, 83, 0.9) 0%,
+          rgba(56, 182, 255, 0.9) 0%,
           rgba(0, 0, 0, 0) 40%),
 
       radial-gradient(circle at 60% 30%,
-          rgba(255, 93, 57, 0.9) 0%,
+          rgba(0, 83, 207, 0.9) 0%,
           rgba(255, 120, 90, 0) 40%),
 
       radial-gradient(circle at 40% 70%,
-          rgba(160, 76, 255, 0.9) 0%,
+          rgba(62, 75, 255, 0.9) 0%,
           rgba(190, 40, 255, 0) 40%),
 
       radial-gradient(circle at 60% 70%,
-          rgba(0, 170, 77, 0.9) 0%,
+          rgba(0, 129, 235, 0.9) 0%,
           rgba(80, 220, 255, 0) 40%);
 
   filter: blur(50px);
@@ -144,19 +145,19 @@ a {
 }
 .visual-orbit.constellation {
   border-color: var(--constellation-glow);
-  box-shadow: 0px 0px 20px 0px var(--constellation-glow);
+  box-shadow: 0px 0px 200px 10px var(--constellation-glow);
 }
 .visual-orbit.gamedevblog {
   border-color: var(--gamedevblog-glow);
-  box-shadow: 0px 0px 20px 0px var(--gamedevblog-glow);
+  box-shadow: 0px 0px 200px 10px var(--gamedevblog-glow);
 }
 .visual-orbit.guessphrase {
   border-color: var(--guessphrase-glow);
-  box-shadow: 0px 0px 20px 0px var(--guessphrase-glow);
+  box-shadow: 0px 0px 200px 10px var(--guessphrase-glow);
 }
 .visual-orbit.webbedwords {
   border-color: var(--webbedwords-glow);
-  box-shadow: 0px 0px 20px 0px var(--webbedwords-glow);
+  box-shadow: 0px 0px 200px 10px var(--webbedwords-glow);
 }
 .visual-orbit.circle {
   border-radius: 50%;
@@ -164,8 +165,8 @@ a {
   height: 800px;
 }
 .visual-orbit.logo {
-  border-color: var(--cube-blue-tile);
-  box-shadow: 0px 0px 100px 0px var(--cube-blue-tile);
+  border-color: var(--logo-glow);
+  box-shadow: 0px 0px 100px 10px var(--logo-glow);
 }
 .visual-orbit.box {
   border-radius: 0px;
@@ -283,7 +284,7 @@ a {
 .project-background.about {
   background:
       radial-gradient(circle at 70% 70%,
-          rgba(40, 205, 255, 0.9) 20%,
+          rgba(27, 145, 180, 0.9) 20%,
           rgba(0, 0, 0, 0) 40%),
 
       radial-gradient(circle at 30% 70%,
@@ -409,7 +410,7 @@ svg:active {
   pointer-events: none;
 }
 .logo-container.about {
-  margin-top: 260px;
+  margin-top: 285px;
   transform: scale(0.5);
 }
 .logo-container:hover {
