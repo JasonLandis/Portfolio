@@ -5,7 +5,7 @@
   --border-shadow-default: rgb(163, 163, 163);
   --cube-dark-tile: rgb(31, 31, 31);
   --cube-blue-tile: rgb(0, 83, 238);
-  --constellation-glow: rgb(255, 63, 63);
+  --constellation-glow: rgb(253, 255, 112);
   --gamedevblog-glow: rgb(255, 172, 95);
   --guessphrase-glow: rgb(151, 255, 137);
   --webbedwords-glow: rgb(163, 228, 255);
@@ -135,7 +135,7 @@ a {
   --rotate: 0deg;
   transform: translate(-50%, -50%) rotate(var(--rotate));
   animation: orbit-rotate 60s linear infinite;
-  transition: box-shadow 0.5s ease, width 1s ease, border-color 0.5s ease, border-radius 0.5s ease, height 1s ease;
+  transition: box-shadow 0.5s ease, width 1s ease, border-color 0.5s ease, border-radius 0.5s ease, height 1s ease, border 0.5s ease;
 }
 .visual-orbit.one {
   animation-delay: 0s;
@@ -144,20 +144,20 @@ a {
   animation-delay: -15s;
 }
 .visual-orbit.constellation {
-  border-color: var(--constellation-glow);
-  box-shadow: 0px 0px 200px 10px var(--constellation-glow);
+  border: 10px solid var(--constellation-glow);
+  box-shadow: 0px 0px 70px 10px var(--constellation-glow);
 }
 .visual-orbit.gamedevblog {
-  border-color: var(--gamedevblog-glow);
-  box-shadow: 0px 0px 200px 10px var(--gamedevblog-glow);
+  border: 10px solid var(--gamedevblog-glow);
+  box-shadow: 0px 0px 70px 10px var(--gamedevblog-glow);
 }
 .visual-orbit.guessphrase {
-  border-color: var(--guessphrase-glow);
-  box-shadow: 0px 0px 200px 10px var(--guessphrase-glow);
+  border: 10px solid var(--guessphrase-glow);
+  box-shadow: 0px 0px 70px 10px var(--guessphrase-glow);
 }
 .visual-orbit.webbedwords {
-  border-color: var(--webbedwords-glow);
-  box-shadow: 0px 0px 200px 10px var(--webbedwords-glow);
+  border: 10px solid var(--webbedwords-glow);
+  box-shadow: 0px 0px 70px 10px var(--webbedwords-glow);
 }
 .visual-orbit.circle {
   border-radius: 50%;
@@ -165,7 +165,7 @@ a {
   height: 800px;
 }
 .visual-orbit.logo {
-  border-color: var(--logo-glow);
+  border: 5px solid var(--logo-glow);
   box-shadow: 0px 0px 100px 10px var(--logo-glow);
 }
 .visual-orbit.box {
@@ -429,7 +429,7 @@ svg:active {
   height: 195px;
   background-color: white;
   clip-path: polygon(50% 0%, 100% 22.5%, 100% 78%, 50% 100%, 0% 78%, 0% 22.5%);
-  animation: scale 3s ease infinite 1s alternate;
+  animation: scale 3s ease-in-out infinite 1s alternate;
 }
 
 @keyframes scale {
