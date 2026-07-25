@@ -53,6 +53,7 @@ function satelliteClick(project) {
 
             visualOrbits.forEach(element => {
                 element.classList.remove('circle');
+                element.classList.remove('small-shadow');
             });
 
             blackCovers.forEach(element => {
@@ -76,6 +77,7 @@ function satelliteClick(project) {
         visualOrbits.forEach(element => {
             element.classList.add('circle');
             element.classList.add(project);
+            element.classList.add('small-shadow');
         });
 
         blackCovers.forEach(element => {
@@ -215,4 +217,4 @@ satellites.forEach(satellite => {
 logo.addEventListener('mouseenter', () => logoHover(1));
 logo.addEventListener('mouseleave', () => logoHover(0));
 
-logo.addEventListener('click', () => logoClick())
+logo.addEventListener('click', () => logoClick());
