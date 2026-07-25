@@ -291,7 +291,7 @@ a {
 .project-background.about {
   background:
       radial-gradient(circle at 70% 70%,
-          rgba(27, 145, 180, 0.9) 20%,
+          rgba(16, 87, 219, 0.9) 20%,
           rgba(0, 0, 0, 0) 40%),
 
       radial-gradient(circle at 30% 70%,
@@ -423,15 +423,18 @@ svg:active {
 .logo-container:hover {
   transform: translate(-50%, -50%) scale(1.05);
 }
+.logo-container:active {
+  transform: translate(-50%, -50%) scale(1);
+}
 .logo-container.about:hover {
   transform: translate(-50%, -50%) scale(0.6);
 }
 
 .hexagon {
   position: absolute;
-  top: 1px;
+  top: 0px;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.88);
+  transform: translate(-50%, -50%) scale(0.9);
   width: 200px;
   height: 195px;
   background-color: white;
@@ -440,8 +443,8 @@ svg:active {
 }
 
 @keyframes scale {
-  from { transform: translate(-50%, -50%) scale(0.88); }
-  to { transform: translate(-50%, -50%) scale(0.94); }
+  from { transform: translate(-50%, -50%) scale(0.9); }
+  to { transform: translate(-50%, -50%) scale(0.96); }
 }
 
 .cube-container {
@@ -453,18 +456,18 @@ svg:active {
 .cube-container .top-container {
   position: absolute;
   top: -70px;
-  left: 0.5px;
+  left: 0px;
   transform: translate(-50%, -50%);
 }
 .cube-container .top-container .row {
   display: flex;
-  gap: 40px;
+  gap: 45px;
   justify-content: center;
-  margin-bottom: -12px;
+  margin-bottom: -8px;
 }
 .cube-container .top-container .row .tile {
-  width: 42.4px;
-  height: 30px;
+  width: 35.33px;
+  height: 25px;
   rotate: -22.5deg;
   transform: skew(45deg);
   animation-name: top-move;
@@ -478,12 +481,12 @@ svg:active {
 .cube-container .left-container .row {
   display: flex;
   justify-content: center;
-  gap: 1px;
-  margin-bottom: -30px;
+  gap: 5px;
+  margin-bottom: -25px;
 }
 .cube-container .left-container .row .tile {
-  width: 40px;
-  height: 38px;
+  width: 35px;
+  height: 33px;
   rotate: 90deg;
   transform: skew(-22.5deg);
   animation-name: left-move;
@@ -504,12 +507,12 @@ svg:active {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
-  gap: 1px;
-  margin-bottom: -30px;
+  gap: 5px;
+  margin-bottom: -25px;
 }
 .cube-container .right-container .row .tile {
-  width: 40px;
-  height: 38px;
+  width: 35px;
+  height: 33px;
   rotate: 90deg;
   transform: skew(22.5deg);
   animation-name: right-move;
@@ -538,15 +541,15 @@ svg:active {
 
 @keyframes top-move {
   from { transform: translate(0px, 0px) skew(45deg); }
-  to { transform: translate(2.5px, -4px) skew(45deg); }
+  to { transform: translate(5px, -8px) skew(45deg); }
 }
 
 @keyframes left-move {
   from { transform: translate(0px, 0px) skew(-22.5deg); }
-  to { transform: translate(2.5px, 4px) skew(-22.5deg); }
+  to { transform: translate(5px, 8px) skew(-22.5deg); }
 }
 
 @keyframes right-move {
   from { transform: translate(0px, 0px) skew(22.5deg); }
-  to { transform: translate(2.5px, -4px) skew(22.5deg); }
+  to { transform: translate(5px, -8px) skew(22.5deg); }
 }

@@ -102,24 +102,45 @@ function satelliteClick(project) {
     }
 }
 
+function animatePlaybackRate(animation, targetRate) {
+    const startRate = animation.playbackRate;
+    const startTime = performance.now();
+
+    function update(now) {
+        const progress = Math.min((now - startTime) / 1000, 1);
+
+        const eased = progress * progress * (3 - 2 * progress);
+
+        animation.playbackRate = startRate + (targetRate - startRate) * eased;
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+
+    requestAnimationFrame(update);
+}
+
 function logoHover(direction) {
+    if (logoDisabled) {
+        return;
+    }
+
     if (direction === 1) {
         visualOrbits.forEach(element => {
-            element.classList.add('logo');
+            element.classList.add("logo");
         });
 
         satellites.forEach(element => {
-            const animation = element.getAnimations()[0];
-            animation.playbackRate = Math.random() * 20;
+            animatePlaybackRate(element.getAnimations()[0], (Math.random() + 0.5) * 20);
         });
     } else {
         visualOrbits.forEach(element => {
-            element.classList.remove('logo');
+            element.classList.remove("logo");
         });
 
         satellites.forEach(element => {
-            const animation = element.getAnimations()[0];
-            animation.playbackRate = 1;
+            animatePlaybackRate(element.getAnimations()[0], 1);
         });
     }
 }
@@ -130,6 +151,14 @@ function logoClick() {
     }
 
     logoDisabled = true;
+
+    visualOrbits.forEach(element => {
+        element.classList.remove("logo");
+    });
+
+    satellites.forEach(element => {
+        animatePlaybackRate(element.getAnimations()[0], 1);
+    });
 
     if (view === 'about') {
         view = '';
@@ -156,9 +185,9 @@ function logoClick() {
             satellites.forEach(element => {
                 element.classList.remove('disappear');
             });
-        }, 250);
 
-        logoDisabled = false;
+            logoDisabled = false;
+        }, 250);
     } else {
         view = 'about';
 
