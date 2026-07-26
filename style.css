@@ -568,3 +568,19 @@ svg:active {
   from { transform: translate(0px, 0px) skew(22.5deg); }
   to { transform: translate(5px, -8px) skew(22.5deg); }
 }
+
+.mobile-disclaimer {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .mobile-disclaimer {
+    display: block;
+    position: absolute;
+    width: 100vw;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    margin-top: 500px;
+  }
+}
