@@ -9,7 +9,7 @@
   --gamedevblog-glow: rgb(255, 172, 95);
   --guessphrase-glow: rgb(151, 255, 137);
   --webbedwords-glow: rgb(163, 228, 255);
-  --logo-glow: rgb(62, 178, 255);
+  --logo-glow: rgb(62, 130, 255);
 }
 
 @font-face {
@@ -177,6 +177,10 @@ a {
   width: 300px;
   height: 300px;
 }
+.visual-orbit.logo-active {
+  border: 10px solid var(--logo-glow);
+  box-shadow: 0px 0px 0px 0px;
+}
 
 .orbit {
   position: absolute;
@@ -291,15 +295,15 @@ a {
 .project-background.about {
   background:
       radial-gradient(circle at 70% 70%,
-          rgba(16, 87, 219, 0.9) 20%,
+          rgba(28, 108, 255, 0.9) 20%,
           rgba(0, 0, 0, 0) 40%),
 
       radial-gradient(circle at 30% 70%,
-          rgba(8, 41, 189, 0.9) 20%,
+          rgba(34, 70, 230, 0.9) 20%,
           rgba(255, 120, 90, 0) 40%),
 
       radial-gradient(circle at 50% 30%,
-          rgba(76, 139, 255, 0.9) 80%,
+          rgba(83, 143, 255, 0.9) 80%,
           rgba(190, 40, 255, 0) 40%);
 
   filter: blur(50px);
@@ -311,7 +315,7 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   filter: blur(4px);
-  opacity: 0.4;
+  opacity: 0.3;
 }
 .project-background.gamedevblog {
   background: url('assets/backgrounds/gamedevblog.webp');
@@ -342,20 +346,25 @@ a {
   text-align: center;
   z-index: 0;
 }
+.projects.about {
+  margin-bottom: 40px;
+}
 
 .title {
   font-size: 40px;
   margin-bottom: 10px;
+  text-shadow: 0px 0px 15px #ffffff;
 }
 
 .timeline {
-  font-size: 20px;
+  font-size: 21px;
   font-style: italic;
   margin-bottom: 10px;
+  text-shadow: 0px 0px 30px #ffffff;
 }
 
 .content {
-  font-size: 18px;
+  font-size: 20px;
 }
 .content div {
   margin: 40px 0;
@@ -411,6 +420,7 @@ svg:active {
   left: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 0.5s ease, transform 0.5s ease, margin-top 0.5s ease;
+  cursor: pointer;
 }
 .logo-container.disappear {
   opacity: 0;
@@ -428,6 +438,9 @@ svg:active {
 }
 .logo-container.about:hover {
   transform: translate(-50%, -50%) scale(0.6);
+}
+.logo-container.about:active {
+  transform: translate(-50%, -50%) scale(0.5);
 }
 
 .hexagon {

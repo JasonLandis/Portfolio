@@ -62,7 +62,9 @@ function satelliteClick(project) {
 
             logo.classList.remove('disappear');
 
-            satellitesDisabled = false;
+            setTimeout(() => {
+                satellitesDisabled = false;
+            }, 500);
         }, 250);
     } else {
         view = project;
@@ -131,17 +133,21 @@ function logoHover(direction) {
             element.classList.add("logo");
         });
 
-        satellites.forEach(element => {
-            animatePlaybackRate(element.getAnimations()[0], (Math.random() + 0.5) * 20);
-        });
+        if (!satellitesDisabled) {
+            satellites.forEach(element => {
+                animatePlaybackRate(element.getAnimations()[0], (Math.random() + 0.5) * 20);
+            });
+        }
     } else {
         visualOrbits.forEach(element => {
             element.classList.remove("logo");
         });
 
-        satellites.forEach(element => {
-            animatePlaybackRate(element.getAnimations()[0], 1);
-        });
+        if (!satellitesDisabled) {
+            satellites.forEach(element => {
+                animatePlaybackRate(element.getAnimations()[0], 1);
+            });
+        }
     }
 }
 
@@ -169,13 +175,14 @@ function logoClick() {
             logo.classList.remove('about');
 
             projects.forEach(element => {
-                element.classList.remove('hidden');
+                element.classList.add('hidden');
             });
 
             projectBackground.classList.remove('about');
 
             visualOrbits.forEach(element => {
                 element.classList.remove('circle');
+                element.classList.remove('logo-active');
             });
 
             blackCovers.forEach(element => {
@@ -197,6 +204,7 @@ function logoClick() {
 
         visualOrbits.forEach(element => {
             element.classList.add('box');
+            element.classList.add('logo');
         });
 
         blackCovers.forEach(element => {
@@ -207,6 +215,7 @@ function logoClick() {
             visualOrbits.forEach(element => {
                 element.classList.remove('box');
                 element.classList.add('circle');
+                element.classList.add('logo-active');
             });
 
             blackCovers.forEach(element => {
