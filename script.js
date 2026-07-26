@@ -256,3 +256,14 @@ logo.addEventListener('mouseenter', () => logoHover(1));
 logo.addEventListener('mouseleave', () => logoHover(0));
 
 logo.addEventListener('click', () => logoClick());
+
+
+const globalContainer = document.querySelector('.global-container');
+
+function updateScale() {
+  const scale = Math.min(1, (window.innerWidth - 24) / 900, (window.innerHeight - 24) / 900);
+  globalContainer.style.setProperty('--ui-scale', scale);
+}
+
+updateScale();
+window.addEventListener('resize', updateScale);
