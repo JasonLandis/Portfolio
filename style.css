@@ -84,8 +84,7 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  --ui-scale: 1;
-  transform: translate(-50%, -50%) scale(var(--ui-scale));
+  transform: translate(-50%, -50%);
   transform-origin: center;
 }
 
@@ -161,7 +160,6 @@ a {
 }
 .visual-orbit.small-shadow {
   box-shadow: 0px 0px 100px 10px black;
-  border-size: 5px;
 }
 .visual-orbit.logo {
   border: 10px solid var(--logo-glow);
@@ -561,18 +559,55 @@ svg:active {
   to { transform: translate(5px, -8px) skew(22.5deg); }
 }
 
-.mobile-disclaimer {
-  display: none;
-}
-
 @media (pointer: coarse) {
-  .mobile-disclaimer {
-    display: block;
-    position: absolute;
-    width: 100vw;
-    text-align: center;
-    transform: translate(-50%, -50%);
-    font-size: 30px;
-    margin-top: 500px;
+  .background {
+    background:
+        radial-gradient(circle at 40% 30%,
+            rgba(61, 61, 61, 0.9) 0%,
+            rgba(0, 0, 0, 0) 45%),
+
+        radial-gradient(circle at 60% 30%,
+            rgba(37, 37, 37, 0.9) 0%,
+            rgba(255, 120, 90, 0) 45%),
+
+        radial-gradient(circle at 40% 70%,
+            rgba(31, 31, 31, 0.9) 0%,
+            rgba(190, 40, 255, 0) 45%),
+
+        radial-gradient(circle at 60% 70%,
+            rgba(63, 63, 63, 0.9) 0%,
+            rgba(80, 220, 255, 0) 45%);
+    filter: none;
+  }
+
+  .satellite {
+    will-change: transform;
+    box-shadow: 0 0 10px 2px black;
+  }
+
+  .visual-orbit {
+    box-shadow: 0px 0px 20px 0px var(--border-shadow-default);
+    transition: width 1s ease, border-color 0.5s ease, border-radius 0.5s ease, height 1s ease, border 0.5s ease;
+  }
+  .visual-orbit.constellation {
+    box-shadow: 0px 0px 20px 4px var(--constellation-glow);
+  }
+  .visual-orbit.gamedevblog {
+    box-shadow: 0px 0px 20px 4px var(--gamedevblog-glow);
+  }
+  .visual-orbit.guessphrase {
+    box-shadow: 0px 0px 20px 4px var(--guessphrase-glow);
+  }
+  .visual-orbit.webbedwords {
+    box-shadow: 0px 0px 20px 4px var(--webbedwords-glow);
+  }
+  .visual-orbit.small-shadow {
+    box-shadow: 0px 0px 30px 4px black;
+  }
+  .visual-orbit.logo {
+    box-shadow: 0px 0px 30px 4px var(--logo-glow);
+  }
+  .visual-orbit.logo-active {
+    box-shadow: 0px 0px 0px 0px;
   }
 }
