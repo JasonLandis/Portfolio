@@ -582,32 +582,24 @@ svg:active {
 
   .satellite {
     will-change: transform;
-    box-shadow: 0 0 10px 2px black;
   }
 
   .visual-orbit {
-    box-shadow: 0px 0px 20px 0px var(--border-shadow-default);
     transition: width 1s ease, border-color 0.5s ease, border-radius 0.5s ease, height 1s ease, border 0.5s ease;
   }
-  .visual-orbit.constellation {
-    box-shadow: 0px 0px 20px 4px var(--constellation-glow);
-  }
-  .visual-orbit.gamedevblog {
-    box-shadow: 0px 0px 20px 4px var(--gamedevblog-glow);
-  }
-  .visual-orbit.guessphrase {
-    box-shadow: 0px 0px 20px 4px var(--guessphrase-glow);
-  }
-  .visual-orbit.webbedwords {
-    box-shadow: 0px 0px 20px 4px var(--webbedwords-glow);
-  }
-  .visual-orbit.small-shadow {
-    box-shadow: 0px 0px 30px 4px black;
-  }
-  .visual-orbit.logo {
-    box-shadow: 0px 0px 30px 4px var(--logo-glow);
-  }
-  .visual-orbit.logo-active {
-    box-shadow: 0px 0px 0px 0px;
+
+  .satellite,
+  .visual-orbit,
+  .visual-orbit.constellation,
+  .visual-orbit.gamedevblog,
+  .visual-orbit.guessphrase,
+  .visual-orbit.webbedwords,
+  .visual-orbit.small-shadow,
+  .visual-orbit.logo,
+  .visual-orbit.logo-active,
+  .content .link.gamedevblog,
+  .content .link.guessphrase,
+  .content .link.webbedwords {
+    box-shadow: none;
   }
 }
