@@ -84,7 +84,8 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  --ui-scale: 1;
+  transform: translate(-50%, -50%) scale(var(--ui-scale));
   transform-origin: center;
 }
 
@@ -558,6 +559,21 @@ svg:active {
   from { transform: translate(0px, 0px) skew(22.5deg); }
   to { transform: translate(5px, -8px) skew(22.5deg); }
 }
+
+.satellite,
+  .visual-orbit,
+  .visual-orbit.constellation,
+  .visual-orbit.gamedevblog,
+  .visual-orbit.guessphrase,
+  .visual-orbit.webbedwords,
+  .visual-orbit.small-shadow,
+  .visual-orbit.logo,
+  .visual-orbit.logo-active,
+  .content .link.gamedevblog,
+  .content .link.guessphrase,
+  .content .link.webbedwords {
+    box-shadow: none;
+  }
 
 @media (pointer: coarse) {
   .background {
