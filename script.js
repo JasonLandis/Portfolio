@@ -51,9 +51,14 @@ function satelliteClick(project) {
                 element.classList.remove('circle');
             });
 
+            const canHover = matchMedia('(hover: hover)').matches;
+
             visualOrbits.forEach(element => {
                 element.classList.remove('circle');
                 element.classList.remove('small-shadow');
+                if (!canHover) {
+                    element.classList.remove(project);
+                }
             });
 
             blackCovers.forEach(element => {
