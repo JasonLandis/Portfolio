@@ -84,21 +84,27 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 900px;
-  height: 900px;
   --ui-scale: 1;
   transform: translate(-50%, -50%) scale(var(--ui-scale));
   transform-origin: center;
 }
 
+@property --rotate {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
 .black-cover {
   position: absolute;
-  inset: 0;
-  margin: auto;
+  top: 50%;
+  left: 50%;
   width: 400px;
   height: 800px;
   border-radius: 50%;
   background-color: black;
+  --rotate: 0deg;
+  transform: translate(-50%, -50%) rotate(var(--rotate));
   animation: orbit-rotate 60s linear infinite;
   transition: width 1s ease, border-radius 0.5s ease, height 1s ease;
 }
@@ -121,14 +127,16 @@ a {
 
 .visual-orbit {
   position: absolute;
-  inset: 0;
-  margin: auto;
+  top: 50%;
+  left: 50%;
   width: 400px;
   height: 800px;
   border: 4px solid var(--orbit-border);
   border-radius: 50%;
   pointer-events: none;
   box-shadow: 0px 0px 50px 0px var(--border-shadow-default);
+  --rotate: 0deg;
+  transform: translate(-50%, -50%) rotate(var(--rotate));
   animation: orbit-rotate 60s linear infinite;
   transition: box-shadow 0.5s ease, width 1s ease, border-color 0.5s ease, border-radius 0.5s ease, height 1s ease, border 0.5s ease;
 }
@@ -178,11 +186,13 @@ a {
 
 .orbit {
   position: absolute;
-  inset: 0;
-  margin: auto;
+  top: 50%;
+  left: 50%;
   width: 400px;
   height: 800px;
   pointer-events: none;
+  --rotate: 0deg;
+  transform: translate(-50%, -50%) rotate(var(--rotate));
   animation: orbit-rotate 60s linear infinite;
   z-index: 99;
 }
@@ -194,8 +204,8 @@ a {
 }
 
 @keyframes orbit-rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from { --rotate: 0deg; }
+  to { --rotate: 360deg; }
 }
 
 .satellite {
