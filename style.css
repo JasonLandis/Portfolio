@@ -125,6 +125,24 @@ a {
   height: 300px;
 }
 
+.orbit-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  --rotate: 0deg;
+  transform: rotate(var(--rotate));
+  animation: orbit-rotate 60s linear infinite;
+}
+.orbit-spinner.one {
+  animation-delay: 0s;
+}
+.orbit-spinner.two {
+  animation-delay: -15s;
+}
+
 .visual-orbit {
   position: absolute;
   top: 50%;
@@ -135,16 +153,8 @@ a {
   border-radius: 50%;
   pointer-events: none;
   box-shadow: 0px 0px 50px 0px var(--border-shadow-default);
-  --rotate: 0deg;
-  transform: translate(-50%, -50%) rotate(var(--rotate));
-  animation: orbit-rotate 60s linear infinite;
+  transform: translate(-50%, -50%);
   transition: box-shadow 0.5s ease, width 1s ease, border-color 0.5s ease, border-radius 0.5s ease, height 1s ease, border 0.5s ease;
-}
-.visual-orbit.one {
-  animation-delay: 0s;
-}
-.visual-orbit.two {
-  animation-delay: -15s;
 }
 .visual-orbit.constellation {
   border: 10px solid var(--constellation-glow);
