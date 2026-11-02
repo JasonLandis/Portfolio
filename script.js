@@ -266,7 +266,8 @@ logo.addEventListener('click', () => logoClick());
 const globalContainer = document.querySelector('.global-container');
 
 function updateScale() {
-  const scale = Math.min(1, (window.innerWidth - 24) / 900, (window.innerHeight - 24) / 900);
+  const { clientWidth, clientHeight } = document.documentElement;
+  const scale = Math.min(1, (clientWidth - 24) / 900, (clientHeight - 24) / 900);
   globalContainer.style.setProperty('--ui-scale', scale);
 }
 

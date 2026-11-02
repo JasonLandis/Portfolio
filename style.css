@@ -36,7 +36,14 @@
     font-display: swap;
 }
 
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
+  position: relative;
+  height: 100%;
   margin: 0;
   color: var(--font-default);
   background-color: var(--background);
@@ -47,6 +54,7 @@ body {
 button {
   all: unset;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 a {
@@ -367,7 +375,7 @@ a {
   z-index: 0;
 }
 .projects.about {
-  margin-bottom: 40px;
+  margin-bottom: 100px;
 }
 
 .title {
@@ -414,6 +422,15 @@ a {
 .content .link.webbedwords {
   background-color: var(--webbedwords-glow);
   box-shadow: 0 0 8px 1px var(--webbedwords-glow);
+}
+
+.icons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+.icons svg {
+  display: block;
 }
 
 .details {
@@ -643,7 +660,7 @@ svg:active {
   }
 
   .projects.about {
-    margin-bottom: 90px;
+    margin-bottom: 150px;
   }
 
   .title {
@@ -667,5 +684,6 @@ svg:active {
     font-size: 20px;
     max-width: 450px;
     margin: 10px auto 0;
+    text-wrap: balance;
   }
 }
