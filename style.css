@@ -8,7 +8,7 @@
   --constellation-glow: rgb(255, 255, 255);
   --gamedevblog-glow: rgb(255, 172, 95);
   --guessphrase-glow: rgb(151, 255, 137);
-  --webbedwords-glow: rgb(163, 228, 255);
+  --webbedwords-glow: rgb(94, 163, 192);
   --logo-glow: rgb(62, 130, 255);
 }
 
@@ -262,7 +262,7 @@ a {
 }
 .satellite.two.webbedwords {
   animation-delay: 0s;
-  background-color: #bcdbff;
+  background-color: #3a69a2;
   background-image: url('assets/icons/webbedwords.webp');
   background-size: 60px auto;
   background-repeat: no-repeat;
