@@ -363,7 +363,7 @@ a {
   z-index: 0;
 }
 .projects.about {
-  margin-bottom: 100px;
+  margin-bottom: 70px;
 }
 
 .title {
@@ -457,7 +457,7 @@ svg:active {
   pointer-events: none;
 }
 .logo-container.about {
-  margin-top: 285px;
+  margin-top: 255px;
   transform: scale(0.5);
 }
 .logo-container:hover {
@@ -646,31 +646,43 @@ svg:active {
     padding: 70px;
   }
 
-  .projects.about {
-    margin-bottom: 150px;
+  .logo-container.about {
+    margin-top: 277px;
   }
 
   .title {
-    font-size: 44px;
-    margin-bottom: 6px;
+    font-size: 40px;
+    margin-bottom: 8px;
   }
 
   .timeline {
-    font-size: 24px;
-    margin-bottom: 6px;
+    font-size: 22px;
+    margin-bottom: 8px;
   }
 
   .content {
-    font-size: 26px;
+    font-size: 23px;
   }
   .content div {
-    margin: 16px 0;
+    margin: 44px 0;
+  }
+
+  #about-info .content {
+    font-size: 19px;
+  }
+
+  #constellation-info .content {
+    font-size: 20px;
+  }
+
+  #gamedevblog-info .content {
+    font-size: 18px;
   }
 
   .details {
-    font-size: 20px;
+    font-size: 18px;
     max-width: 450px;
-    margin: 10px auto 0;
+    margin: 20px auto 0;
     text-wrap: balance;
   }
 }
