@@ -9,6 +9,7 @@
   --gamedevblog-glow: rgb(255, 172, 95);
   --guessphrase-glow: rgb(151, 255, 137);
   --webbedwords-glow: rgb(94, 163, 192);
+  --math2python-glow: #ffd43b;
   --logo-glow: rgb(62, 130, 255);
 }
 
@@ -180,6 +181,11 @@ a {
   border: 10px solid var(--webbedwords-glow);
   --glow: var(--webbedwords-glow);
 }
+.visual-orbit.math2python {
+  border: 10px solid var(--math2python-glow);
+  --glow: var(--math2python-glow);
+}
+
 .visual-orbit.circle {
   border-radius: 50%;
   width: 800px;
@@ -245,29 +251,34 @@ a {
   transform: scale(1);
 }
 .satellite.one.constellation {
-  animation-delay: -30s;
+  animation-delay: -40s;
   background-image: url('assets/icons/constellation.webp');
 }
 .satellite.one.gamedevblog {
-  animation-delay: 0s;
+  animation-delay: -20s;
   background-color: rgb(22, 22, 22);
   background-image: url('assets/icons/gamedevblog.webp');
   background-size: 65px auto;
   background-repeat: no-repeat;
   background-position: center;
 }
+.satellite.one.math2python {
+  animation-delay: 0s;
+  background-image: url('assets/icons/math2python.webp');
+}
 .satellite.two.guessphrase {
-  animation-delay: -30s;
+  animation-delay: -40s;
   background-image: url('assets/icons/guessphrase.webp');
 }
 .satellite.two.webbedwords {
-  animation-delay: 0s;
+  animation-delay: -20s;
   background-color: #3a69a2;
   background-image: url('assets/icons/webbedwords.webp');
   background-size: 60px auto;
   background-repeat: no-repeat;
   background-position: center;
 }
+
 .satellite.circle {
   offset-path: ellipse(400px 400px at center);
 }
@@ -357,6 +368,14 @@ a {
   background-repeat: no-repeat;
   opacity: 0.2;
 }
+.project-background.math2python {
+  background: url('assets/backgrounds/math2python.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+}
+
 
 .projects {
   text-align: center;
@@ -411,6 +430,11 @@ a {
   background-color: var(--webbedwords-glow);
   box-shadow: 0 0 8px 1px var(--webbedwords-glow);
 }
+.content .link.math2python {
+  background-color: var(--math2python-glow);
+  box-shadow: 0 0 8px 1px var(--math2python-glow);
+}
+
 
 .icons {
   display: flex;
@@ -631,12 +655,14 @@ svg:active {
   .visual-orbit.gamedevblog,
   .visual-orbit.guessphrase,
   .visual-orbit.webbedwords,
+  .visual-orbit.math2python,
   .visual-orbit.small-shadow,
   .visual-orbit.logo,
   .visual-orbit.logo-active,
   .content .link.gamedevblog,
   .content .link.guessphrase,
-  .content .link.webbedwords {
+  .content .link.webbedwords,
+  .content .link.math2python {
     box-shadow: none;
   }
 

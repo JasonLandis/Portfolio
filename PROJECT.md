@@ -3,7 +3,7 @@
 ### Assets
 
 - Add the satellite icon at `assets/icons/newproject.webp`.
-- Add the background image at `assets/backgrounds/newproject.webp`.
+- Add the background image at `assets/backgrounds/newproject.webp`. The image should be blurred.
 
 ### index.html
 
@@ -14,7 +14,7 @@
 
 - Add a satellite button inside `.orbit.one` or `.orbit.two`. The `id` must match the project name exactly:
   ```html
-  <button id="newproject" class="satellite two newproject"></button>
+  <button id="newproject" class="satellite one newproject"></button>
   ```
 
 - Add an info panel inside `#project-container`:
