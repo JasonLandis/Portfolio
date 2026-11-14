@@ -315,16 +315,17 @@ a {
 .project-background.about {
   background:
       radial-gradient(circle at 70% 70%,
-          rgba(28, 108, 255, 0.9) 20%,
-          rgba(0, 0, 0, 0) 40%),
+          rgba(28, 108, 255, 0.9) 10%,
+          rgba(28, 108, 255, 0) 45%),
 
       radial-gradient(circle at 30% 70%,
-          rgba(34, 70, 230, 0.9) 20%,
-          rgba(255, 120, 90, 0) 40%),
+          rgba(34, 70, 230, 0.9) 10%,
+          rgba(34, 70, 230, 0) 45%),
 
-      radial-gradient(circle at 50% 30%,
-          rgba(83, 143, 255, 0.9) 80%,
-          rgba(190, 40, 255, 0) 40%);
+      radial-gradient(circle closest-side,
+          rgba(83, 143, 255, 0.9) 35%,
+          rgba(83, 143, 255, 0.55) 75%,
+          rgba(83, 143, 255, 0) 100%);
 
   opacity: 0.95;
 }
