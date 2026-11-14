@@ -80,3 +80,8 @@
   ```
 
 - In the `@media (pointer: coarse)` block, add `.visual-orbit.newproject` to the `box-shadow: none` list, and `.content .link.newproject` if there's a link button.
+
+### Github
+
+- Take a new screenshot of the portfolio and replace the existing on in the README.md file on Github.
+
