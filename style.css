@@ -199,7 +199,7 @@ a {
 }
 .visual-orbit.logo-active {
   border: 10px solid var(--logo-glow);
-  box-shadow: 0px 0px 0px 0px;
+  box-shadow: 0px 0px 100px 10px black;
 }
 
 .orbit {
@@ -363,7 +363,7 @@ a {
   z-index: 0;
 }
 .projects.about {
-  margin-bottom: 70px;
+  margin-bottom: 40px;
 }
 
 .title {
@@ -644,10 +644,6 @@ svg:active {
     width: 660px;
     height: 660px;
     padding: 70px;
-  }
-
-  .logo-container.about {
-    margin-top: 277px;
   }
 
   .title {
